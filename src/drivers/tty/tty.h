@@ -1,0 +1,74 @@
+/* Copyright (C) 2009 Klystofer Ortega, Victor Villela Serta
+   This file is part of Kvnix.
+
+   Kvnix is free software: you can redistribute it and/or modify
+   it under the terms of the GNU Lesser General Public License as 
+   published by the Free Software Foundation, either version 3 of 
+   the License, or (at your option) any later version.
+
+   Kvnix is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+   GNU Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public 
+   License along with Kvnix. If not, see <http://www.gnu.org/licenses/>. 
+*/
+
+/**
+ * @file
+ *
+ * TTY Driver.
+ *
+ * @author Victor V. Serta
+ */
+
+#ifndef _TTY_H
+#define _TTY_H
+
+#include <util/code_const.h>
+
+/**
+ * Informations about the console.
+ */
+struct {
+    int cursor_row;
+    int cursor_column;
+    int max_row;
+    int max_column;
+} console;
+
+/**
+ * Initializes the tty driver.
+ */
+PUBLIC void tty_init();
+
+/**
+ * Clears the screen.
+ */
+PUBLIC void tty_clear_screen();
+
+/**
+ * Sets the cursor position
+ *
+ * @param row new row of the cursor
+ * @param column new column of the cursor
+ */
+PUBLIC void tty_set_cursor_position(int row, int column);
+
+/**
+ * Prints a character.
+ *
+ * @param c character
+ */
+PUBLIC void tty_print_char(char c);
+
+/**
+ * Reads a character.
+ *
+ * @return character
+ */
+PUBLIC char tty_read_char();
+
+
+#endif
